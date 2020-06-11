@@ -1,0 +1,25 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: workspace-cleanup
+  labels:
+    app: {{ .Values.appName }}
+    appId: "{{ .Values.appId }}"
+spec:
+  schedule: {{ .Values.schedule }}
+  successfulJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: {{ .Values.appName }}
+            appId: "{{ .Values.appId }}"
+        spec:
+          restartPolicy: Never
+          terminationGracePeriodSeconds: 30
+          containers:
+            - name: cron-container
+              image: {{ .Values.image }}
+              imagePullPolicy: "IfNotPresent"
+    
