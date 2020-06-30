@@ -1,7 +1,7 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: workspace-cleanup
+  name: {{ .Values.appName }}
   labels:
     app: {{ .Values.appName }}
     appId: "{{ .Values.appId }}"
