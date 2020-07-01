@@ -6,7 +6,7 @@ metadata:
     app: {{ .Values.appName }}
     appId: "{{ .Values.appId }}"
 spec:
-  schedule: {{ .Values.schedule }}
+  schedule: "{{ .Values.schedule }}"
   successfulJobsHistoryLimit: 1
   jobTemplate:
     spec:
