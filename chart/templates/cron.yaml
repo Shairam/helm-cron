@@ -5,6 +5,7 @@ metadata:
   labels:
     app: {{ .Values.appName }}
     appId: "{{ .Values.appId }}"
+    envId: "{{ .Values.envId }}"
 spec:
   schedule: "{{ .Values.schedule }}"
   successfulJobsHistoryLimit: 1
@@ -15,6 +16,7 @@ spec:
           labels:
             app: {{ .Values.appName }}
             appId: "{{ .Values.appId }}"
+            envId: "{{ .Values.envId }}"
         spec:
           restartPolicy: Never
           terminationGracePeriodSeconds: 30
